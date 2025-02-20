@@ -15,7 +15,7 @@ This project demonstrates automated testing of Google Search using Playwright an
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/<your-username>/google-search-tests.git
+    git clone https://github.com/SrikarKookutla/google-search-tests.git
     cd google-search-tests
     ```
 
