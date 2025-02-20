@@ -1,64 +1,26 @@
 {
   "name": "playwright",
-  "version": "1.50.1",
-  "description": "A high-level API to automate web browsers",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/microsoft/playwright.git"
-  },
-  "homepage": "https://playwright.dev",
-  "engines": {
-    "node": ">=18"
-  },
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "import": "./index.mjs",
-      "require": "./index.js",
-      "default": "./index.js"
-    },
-    "./package.json": "./package.json",
-    "./lib/common/configLoader": "./lib/common/configLoader.js",
-    "./lib/fsWatcher": "./lib/fsWatcher.js",
-    "./lib/program": "./lib/program.js",
-    "./lib/transform/babelBundle": "./lib/transform/babelBundle.js",
-    "./lib/transform/compilationCache": "./lib/transform/compilationCache.js",
-    "./lib/transform/esmLoader": "./lib/transform/esmLoader.js",
-    "./lib/transform/transform": "./lib/transform/transform.js",
-    "./lib/internalsForTest": "./lib/internalsForTest.js",
-    "./lib/plugins": "./lib/plugins/index.js",
-    "./jsx-runtime": {
-      "import": "./jsx-runtime.mjs",
-      "require": "./jsx-runtime.js",
-      "default": "./jsx-runtime.js"
-    },
-    "./lib/util": "./lib/util.js",
-    "./lib/utilsBundle": "./lib/utilsBundle.js",
-    "./types/test": {
-      "types": "./types/test.d.ts"
-    },
-    "./types/testReporter": {
-      "types": "./types/testReporter.d.ts"
-    },
-    "./test": {
-      "types": "./test.d.ts",
-      "import": "./test.mjs",
-      "require": "./test.js",
-      "default": "./test.js"
-    }
+  "scripts": {
+    
+    "tests:edgewater": "npx playwright test edgewater.test.ts --project=chromium --headed"
   },
-  "bin": {
-    "playwright": "cli.js"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.4",
+    "ortoni-report": "^1.1.5"
   },
-  "author": {
-    "name": "Microsoft Corporation"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "playwright-core": "1.50.1"
-  },
-  "optionalDependencies": {
-    "fsevents": "2.3.2"
+    "csv-parse": "^5.5.6",
+    "latest": "^0.2.0",
+    "moment": "^2.30.1",
+    "playwright": "^1.50.0",
+    "xlsx": "^0.18.5"
   }
 }
