@@ -1,28 +1,23 @@
-import { PlaywrightTestConfig, devices } from '@playwright/test';
-// import { devices } from '@playwright/test';
-import{getUniqueID} from './lib/DataUtils.ts';
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+// import dotenv from 'dotenv';
+// import path from 'path';
+// dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-let outFolder ='test-report/my-report' + getUniqueID()
-const config: PlaywrightTestConfig = {
-  testDir: './tests',
-  /* Maximum time one test can run for. */
-  timeout: 20 * 100000,
-  expect: {
-    /**
-     * Maximum time expect() should wait for the condition to be met.
-     * For example in `await expect(locator).toHaveText();`
-     */
-    timeout: 20000
-  },
+export default defineConfig({
+  testDir: './tests', // or wherever your tests are located
+  testMatch: ['**/*.test.ts', '**/*.spec.ts'] , // Make sure this matches your file naming pattern
+
+  // testDir: './e2e',
+  /* Run tests in files in parallel */
+  // fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -30,8 +25,7 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter:[["./customReporter/myReporter.ts"],['html',{open:'never',outputFolder:outFolder}], ['ortoni-report']
-],
+  reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -45,10 +39,7 @@ const config: PlaywrightTestConfig = {
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'],
-      screenshot:`on`,
-      video:`on`},
-
+      use: { ...devices['Desktop Chrome'] },
     },
 
     {
@@ -82,15 +73,10 @@ const config: PlaywrightTestConfig = {
     // },
   ],
 
-  /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'test-results/',
-
   /* Run your local dev server before starting the tests */
   // webServer: {
   //   command: 'npm run start',
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-};
-
-export default config;
+});

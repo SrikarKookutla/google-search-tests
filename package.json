@@ -1,17 +1,16 @@
 {
   "name": "playwright",
   "version": "1.0.0",
-  "description": "",
+  "description": "this is the basic assignment test for edgewater",
   "main": "index.js",
   "scripts": {
-    
     "tests:edgewater": "npx playwright test edgewater.test.ts --project=chromium --headed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.50.0",
+    "@playwright/test": "^1.50.1",
     "@types/jest": "^29.5.5",
     "@types/node": "^20.8.4",
     "ortoni-report": "^1.1.5"
@@ -20,7 +19,7 @@
     "csv-parse": "^5.5.6",
     "latest": "^0.2.0",
     "moment": "^2.30.1",
-    "playwright": "^1.50.0",
+    "playwright": "^1.50.1",
     "xlsx": "^0.18.5"
   }
 }
